@@ -1,2 +1,38 @@
 # jquery-validation-unobtrusive-normalize
-unobtrusive adapter and supporting framework for wiring up jquery-validation's unique normalizer rule
+
+This jQuery Unobtrusive Validation adapter and normalizer dictionary add the ability to specify jQuery Validation Normalizer rules using HTML5 `data-*` attributes via jQuery Unobtrusive Validation parsing.
+
+## Usage
+
+A normalizer is a function that takes a string as a parameter and returns a modified version of the string.
+jQuery Validation will execute a provided normalizer before running any of its validations.
+
+To attach them using `data-val-*` unobtrusive attributes using this package, simply add a `data-val-normalizer` attribute, like you would for any other jQuery Validation method.
+```html
+<input type="text" name="name" value="100.0-" data-val-normalizer="reformat-number" />
+````
+
+You can specify multiple normalizers to be run in sequence by separating them with whitespace.
+```html
+<input type="text" name="name" value="100.0-" data-val-normalizer="reformat-number remove-hyphens" />
+````
+
+To add your own normalizer to the dictionary, give it a unique name and add it to `$.validator.unobtrusive.normalizers` like such.
+```javascript
+$.validator.unobtrusive.normalizers.addNormalizer("remove-3rd", function(value){
+	return value.replace(/(...)./g,"$1");
+});
+```
+
+You can create composite normalizers by adding a normalizer whose value is a whitespace delimited list of normalizer names.
+```javascript
+$.validator.unobtrusive.normalizers.addNormalizer("no-excuses", "no-ifs no-ands no-buts");
+```
+
+This will make these two tags equivalent.
+```html
+<input type="text" name="name" value="but it's too complicated" data-val-normalizer="no-excuses" />
+<input type="text" name="name" value="but it's too complicated" data-val-normalizer="no-ifs no-ands no-buts" />
+````
+
+You can see that with `data-val-normalizer` the list of named normalizers replaces the jQuery Unobtrusive Validation's usage of that attribute to specify the error message for validation.  Since normalizers are not a _real_ validation method in jQuery Validation, there is no use for the message and no need for another attribute to hold the normailzer names. 
