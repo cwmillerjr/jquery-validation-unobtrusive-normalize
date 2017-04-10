@@ -26,7 +26,7 @@
         return value;
     }
 
-    $jQuno.add("normalizer", [], function (options) {
+    $jQuno.adapters.add("normalizer", [], function (options) {
         options.rules["normalizer"] = function (value) { //this is the DOMElement whose value is being normalized
             return normalize.call(this, value, options.message);
         }
