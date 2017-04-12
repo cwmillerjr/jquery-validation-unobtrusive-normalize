@@ -1,4 +1,12 @@
-﻿(function ($jQuno) {
+﻿(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        define("jquery.validate.unobtrusive.normalize", ["jquery.validate.unobtrusive"], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        module.exports = factory(require("jquery.validate.unobtrusive"));
+    } else {
+        jQuery.validator.unobtrusive.normalizers = factory(jQuery.validator.unobtrusive);
+    }
+}(function ($jQuno) {
 
     $jQuno.normalizers = new function () {
 
@@ -28,7 +36,7 @@
 
     $jQuno.adapters.add("normalizer", [], function (options) {
         options.rules["normalizer"] = function (value) { //this is the DOMElement whose value is being normalized
-            return normalize.call(this, value, options.message);
+            return normalize.call(this, value, options.message)
         }
     });
     
@@ -80,4 +88,5 @@
         return value;
     });
 
-})($.validator.unobtrusive);
+    return $jQuno.normalizers;
+}));
