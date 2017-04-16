@@ -1,8 +1,8 @@
-(function (factory) {
+﻿(function (factory) {
     if (typeof define === 'function' && define.amd) {
-        define("jquery-validate-unobtrusive-normalize", ["jquery-validate-unobtrusive"], factory);
+        define("jquery-validation-unobtrusive-normalize", ["jquery-validation-unobtrusive"], factory);
     } else if (typeof module === 'object' && module.exports) {
-        module.exports = factory(require("jquery-validate-unobtrusive"));
+        module.exports = factory(require("jquery-validation-unobtrusive"));
     } else {
         jQuery.validator.unobtrusive.normalizers = factory(jQuery.validator.unobtrusive);
     }

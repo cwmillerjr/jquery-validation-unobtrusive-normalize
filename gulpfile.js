@@ -1,5 +1,4 @@
 ﻿var pth = "./";
-
 var gulp = require("gulp"),
     uglify = require("gulp-uglify"),
     rename = require('gulp-rename'),
@@ -8,7 +7,7 @@ var gulp = require("gulp"),
     pkg = require(pth + 'package.json');
 
 gulp.task("minifyJS", function () {
-    gulp.src([pth + "src/jquery-validation-unobtrusive-normalize.js"])
+    gulp.src([pth + "src/jquery.validate.unobtrusive.normalize.js"])
         .pipe(replace(/@version.*/, '@version v' + pkg.version))
         .pipe(gulp.dest(pth + "dist"))
         .pipe(uglify({

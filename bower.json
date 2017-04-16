@@ -1,0 +1,32 @@
+{
+    "name": "jquery-validation-unobtrusive-normalize",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/cwmillerjr/jquery-validation-unobtrusive-normalize.git"
+    },
+    "description": "Add-on to jQuery Unobtrusive Validation to enable jQuery Validation normalizers to be applied via data-* attributes.",
+    "main": "dist/jquery.validate.unobtrusive.normalize.js",
+    "authors": [
+        "Charles Wm Miller Jr"
+    ],
+    "license": "MIT",
+    "keywords": [
+        "jquery",
+        "asp.net",
+        "mvc",
+        "validation",
+        "unobtrusive",
+        "normalize",
+        "normalizer"
+    ],
+    "homepage": "https://github.com/cwmillerjr/jquery-validation-unobtrusive-normalize",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "wwwroot/lib",
+        "test",
+        "tests"
+    ]
+}
