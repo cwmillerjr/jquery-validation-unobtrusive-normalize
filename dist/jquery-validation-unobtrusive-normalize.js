@@ -1,4 +1,4 @@
-﻿(function (factory) {
+(function (factory) {
     if (typeof define === 'function' && define.amd) {
         define("jquery-validate-unobtrusive-normalize", ["jquery-validate-unobtrusive"], factory);
     } else if (typeof module === 'object' && module.exports) {
