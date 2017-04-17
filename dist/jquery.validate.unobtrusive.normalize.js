@@ -1,6 +1,9 @@
-/*!
-** Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation
-** Copyright (C) cwmillerjr
+/**
+* @module jquery-validation-unobtrusive-normalize
+* Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation
+* @copyright cwmillerjr
+* @version v0.1.0
+* @exports $.validator.unobtrusive.normalizers
 */
 
 (function (factory) {
@@ -20,9 +23,8 @@
          * @returns {string} Normalized value.
          */
 
-        /** @module jquery-validation-unobtrusive-normalize
-         * Unobtrusive normalization add-on for jQuery Validation Unobtrusive
-         * @constructor
+        /** @class Unobtrusive normalization add-on for jQuery Validation Unobtrusive
+         * @classdesc This dictionary catalogs the normalizer functions available to be used via the data-val-normalizer="name" attributes.
          */
         function normalizerDictionary () {
 
@@ -32,6 +34,8 @@
              * @function
              * @name addNormalizer
              * Adds a named normalizer function to the dictionary.
+             * @example
+             * $.validator.unobtrusive.normalize.addNormalizer('remove-amps',function(value){return (value || '').replace('&','');});
              * @param {string} name - The name of the normalizer.
              * @param {(string|normalizer)} method - The method to normalize a value or a space delimited list of normalizer names to execute.
              */
@@ -43,6 +47,12 @@
 
         $jQuno.normalizers = new normalizerDictionary();
 
+        /**
+         * Inner normalization helper.
+         * @param {string} value - Value being validated.
+         * @param {string} normalizer - Space delimited list of named normalizers to apply.
+         * @this DOMElement being validated.
+         */
         function normalize (value, normalizer) { //this is the DOMElement whose value is being normalized
         //attributes that are space delimited are a list of rules, so split them and find each individually.
         if (/\s/.test(normalizer)) {
