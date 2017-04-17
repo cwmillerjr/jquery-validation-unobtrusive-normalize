@@ -2,7 +2,6 @@
 * Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation
 * @copyright cwmillerjr
 * @version v0.1.0
-* @exports $.validator.unobtrusive.normalizers
 */
 
 (function (factory) {

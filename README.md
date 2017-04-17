@@ -39,66 +39,46 @@ You can see that with `data-val-normalizer` the list of named normalizers replac
 
 # API
 
-<a name="jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_"></a>
+## Modules
+
+<dl>
+<dt><a href="#module_jquery-validation-unobtrusive-normalize">jquery-validation-unobtrusive-normalize</a></dt>
+<dd></dd>
+</dl>
+
+## Typedefs
+
+<dl>
+<dt><a href="#normalizer">normalizer</a> ⇒ <code>string</code></dt>
+<dd><p>Callback used to normalize a value before validation.</p>
+</dd>
+</dl>
+
+<a name="module_jquery-validation-unobtrusive-normalize"></a>
 
 ## jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation
-**Version**: v0.1.0  
-**Copyright**: cwmillerjr  
-
-* [jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation](#jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_)
-    * [~Unobtrusive normalization add-on for jQuery Validation Unobtrusive](#jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_..Unobtrusive normalization add-on for jQuery Validation Unobtrusive)
-    * [~addNormalizer
-Adds a named normalizer function to the dictionary.(name, method)](#jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_..addNormalizer
-Adds a named normalizer function to the dictionary.)
-    * [~normalizer](#jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_..normalizer) ⇒ <code>string</code>
-
-<a name="jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_..Unobtrusive normalization add-on for jQuery Validation Unobtrusive"></a>
-
-### jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation~Unobtrusive normalization add-on for jQuery Validation Unobtrusive
-This dictionary catalogs the normalizer functions available to be used via the data-val-normalizer="name" attributes.
-
-**Kind**: inner class of <code>[jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation](#jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_)</code>  
-<a name="jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_..addNormalizer
+<a name="module_jquery-validation-unobtrusive-normalize..addNormalizer
 Adds a named normalizer function to the dictionary."></a>
 
-### jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation~addNormalizer
+### jquery-validation-unobtrusive-normalize~addNormalizer
 Adds a named normalizer function to the dictionary.(name, method)
-**Kind**: inner method of <code>[jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation](#jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_)</code>  
+**Kind**: inner method of <code>[jquery-validation-unobtrusive-normalize](#module_jquery-validation-unobtrusive-normalize)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | name | <code>string</code> | The name of the normalizer. |
-| method | <code>string</code> &#124; <code>normalizer</code> | The method to normalize a value or a space delimited list of normalizer names to execute. |
+| method | <code>string</code> &#124; <code>[normalizer](#normalizer)</code> | The method to normalize a value or a space delimited list of normalizer names to execute. |
 
 **Example**  
 ```js
 $.validator.unobtrusive.normalize.addNormalizer('remove-amps',function(value){return (value || '').replace('&','');});
 ```
-<a name="jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_..normalizer"></a>
+<a name="normalizer"></a>
 
-### jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation~normalizer ⇒ <code>string</code>
+## normalizer ⇒ <code>string</code>
 Callback used to normalize a value before validation.
 
-**Kind**: inner typedef of <code>[jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation](#jquery-validation-unobtrusive-normalize
-Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validationmodule_)</code>  
+**Kind**: global typedef  
 **Returns**: <code>string</code> - Normalized value.  
 
 | Param | Type | Description |
