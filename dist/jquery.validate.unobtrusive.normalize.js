@@ -1,5 +1,4 @@
 /**
-* @module jquery-validation-unobtrusive-normalize
 * Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation
 * @copyright cwmillerjr
 * @version v0.1.0
@@ -25,6 +24,7 @@
 
         /** @class Unobtrusive normalization add-on for jQuery Validation Unobtrusive
          * @classdesc This dictionary catalogs the normalizer functions available to be used via the data-val-normalizer="name" attributes.
+         * @module jquery-validation-unobtrusive-normalize
          */
         function normalizerDictionary () {
 
