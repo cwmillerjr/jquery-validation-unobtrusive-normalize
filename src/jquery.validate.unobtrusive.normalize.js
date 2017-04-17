@@ -1,4 +1,9 @@
-﻿(function (factory) {
+﻿/*!
+** Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation
+** Copyright (C) cwmillerjr
+*/
+
+(function (factory) {
     if (typeof define === 'function' && define.amd) {
         define("jquery-validation-unobtrusive-normalize", ["jquery-validation-unobtrusive"], factory);
     } else if (typeof module === 'object' && module.exports) {
@@ -8,21 +13,44 @@
     }
 }(function ($jQuno) {
 
-    $jQuno.normalizers = new function () {
+        /**
+         * Callback used to normalize a value before validation.
+         * @callback normalizer
+         * @param {string} value - Value to be normalized.
+         * @returns {string} Normalized value.
+         */
 
-        var self = this;
+        /** @module jquery-validation-unobtrusive-normalize
+         * Unobtrusive normalization add-on for jQuery Validation Unobtrusive
+         * @constructor
+         */
+        function normalizerDictionary () {
 
-        this.addNormalizer = function (name, method) {
-            self[name] = method;
+            var self = this;
+
+            /**
+             * @function
+             * @name addNormalizer
+             * Adds a named normalizer function to the dictionary.
+             * @param {string} name - The name of the normalizer.
+             * @param {(string|normalizer)} method - The method to normalize a value or a space delimited list of normalizer names to execute.
+             */
+            this.addNormalizer = function (name, method) {
+                method.name = name;
+                self[name] = method;
+            }
         }
-    }();
 
-    var normalize = function (value, normalizer) { //this is the DOMElement whose value is being normalized
+        $jQuno.normalizers = new normalizerDictionary();
+
+        function normalize (value, normalizer) { //this is the DOMElement whose value is being normalized
+        //attributes that are space delimited are a list of rules, so split them and find each individually.
         if (/\s/.test(normalizer)) {
             normalizer.split(/\s+/).forEach(function (childNormalizer) {
                 value = normalize.call(this, value, childNormalizer);
             });
         } else {
+            //a rule in the dictionary can be a list of space delimited rules as well.
             normalizerFn = $jQuno.normalizers[normalizer];
             if (typeof normalizerFn === 'string') {
                 value = normalize.call(this, value, normalizerFn);
@@ -34,6 +62,7 @@
         return value;
     }
 
+    //Adds the unobtrusive "normalizer" adapter to Unobtrusive Validation
     $jQuno.adapters.add("normalizer", [], function (options) {
         options.rules["normalizer"] = function (value) { //this is the DOMElement whose value is being normalized
             return normalize.call(this, value, options.message)
@@ -57,7 +86,7 @@
     $jQuno.normalizers.addNormalizer("number-only", function (val) {
         var result = val;
         if (val) {
-            result = val.replace(/[^0-9.]/g);
+            result = val.replace(/[^0-9\.]/g);
         }
         return result;
     });
@@ -80,7 +109,7 @@
         }
         return value;
     });
-    $jQuno.normalizers.addNormalizer("reformat-number", function (value) {
+    $jQuno.normalizers.addNormalizer("normalize-number", function (value) {
         if (value) {
             value = value.trim().replace(",", "");
             return value.replace(/^(-?)\$?(-?)([0-9]*\.[0-9]+|[0-9]+)(e-?[0-9]+)?(-?)$/gi, "$1$2$5$3$4");

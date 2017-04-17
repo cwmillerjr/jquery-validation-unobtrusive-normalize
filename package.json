@@ -1,41 +1,42 @@
 {
-    "name": "jquery-validation-unobtrusive-normalize",
-    "version": "0.1.0",
-    "homepage": "https://github.com/cwmillerjr/jquery-validation-unobtrusive-normalize",
-    "description": "Add-on to jQuery Unobtrusive Validation to enable jQuery Validation normalizers to be applied via data-* attributes.",
-    "main": "dist/jquery-validation-unobtrusive-normalize.js",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/aspnet/jquery-validation-unobtrusive-normalize.git"
-    },
-    "keywords": [
-        "jquery",
-        "asp.net",
-        "mvc",
-        "validation",
-        "unobtrusive",
-        "normalize",
-        "normalizer"
-    ],
-    "author": {
-        "name": "cwmillerjr"
-    },
-    "license": "https://github.com/cwmillerjr/jquery-validation-unobtrusive-normalize/blob/master/LICENSE",
-    "readme": "The jQuery Unobtrusive Validation Normalize library adds support for declaring jQuery Validation normalizers with data-* elements",
-    "files": [
-        "dist/jquery-validation-unobtrusive-normalize.js",
-        "dist/jquery-validation-unobtrusive-normalize.min.js"
-    ],
-    "dependencies": {
-        "jquery": ">=1.8",
-        "jquery-validation": ">=1.16",
-        "jquery-validation-unobtrusive": ">=3.2.6"
-    },
-    "devDependencies": {
-        "gulp": "3.9.1",
-        "gulp-rename": "1.2.2",
-        "gulp-uglify": "2.0.0",
-        "gulp-replace": "0.5.4",
-        "gulp-line-ending-corrector": "1.0.1"
-    }
+  "name": "jquery-validation-unobtrusive-normalize",
+  "version": "0.1.0",
+  "homepage": "https://github.com/cwmillerjr/jquery-validation-unobtrusive-normalize",
+  "description": "Add-on to jQuery Unobtrusive Validation to enable jQuery Validation normalizers to be applied via data-* attributes.",
+  "main": "dist/jquery-validation-unobtrusive-normalize.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aspnet/jquery-validation-unobtrusive-normalize.git"
+  },
+  "keywords": [
+    "jquery",
+    "asp.net",
+    "mvc",
+    "validation",
+    "unobtrusive",
+    "normalize",
+    "normalizer"
+  ],
+  "author": {
+    "name": "cwmillerjr"
+  },
+  "license": "https://github.com/cwmillerjr/jquery-validation-unobtrusive-normalize/blob/master/LICENSE",
+  "readme": "The jQuery Unobtrusive Validation Normalize library adds support for declaring jQuery Validation normalizers with data-* elements",
+  "files": [
+    "dist/jquery-validation-unobtrusive-normalize.js",
+    "dist/jquery-validation-unobtrusive-normalize.min.js"
+  ],
+  "dependencies": {
+    "jquery": ">=1.8",
+    "jquery-validation": ">=1.16",
+    "jquery-validation-unobtrusive": ">=3.2.6"
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-jsdoc-to-markdown": "^1.2.2",
+    "gulp-line-ending-corrector": "1.0.1",
+    "gulp-rename": "1.2.2",
+    "gulp-replace": "0.5.4",
+    "gulp-uglify": "2.0.0"
+  }
 }
