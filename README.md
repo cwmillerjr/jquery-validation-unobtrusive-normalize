@@ -39,24 +39,20 @@ You can see that with `data-val-normalizer` the list of named normalizers replac
 
 # API
 
-## Modules
-
-<dl>
-<dt><a href="#module_jquery-validation-unobtrusive-normalize">jquery-validation-unobtrusive-normalize</a></dt>
-<dd></dd>
-</dl>
-
-## Typedefs
-
-<dl>
-<dt><a href="#normalizer">normalizer</a> ⇒ <code>string</code></dt>
-<dd><p>Callback used to normalize a value before validation.</p>
-</dd>
-</dl>
-
 <a name="module_jquery-validation-unobtrusive-normalize"></a>
 
 ## jquery-validation-unobtrusive-normalize
+Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation
+
+**Version**: v0.1.0  
+**Copyright**: cwmillerjr  
+
+* [jquery-validation-unobtrusive-normalize](#module_jquery-validation-unobtrusive-normalize)
+    * [~addNormalizer
+Adds a named normalizer function to the dictionary.(name, method)](#module_jquery-validation-unobtrusive-normalize..addNormalizer
+Adds a named normalizer function to the dictionary.)
+    * [~normalizer](#module_jquery-validation-unobtrusive-normalize..normalizer) ⇒ <code>string</code>
+
 <a name="module_jquery-validation-unobtrusive-normalize..addNormalizer
 Adds a named normalizer function to the dictionary."></a>
 
@@ -67,18 +63,19 @@ Adds a named normalizer function to the dictionary.(name, method)
 | Param | Type | Description |
 | --- | --- | --- |
 | name | <code>string</code> | The name of the normalizer. |
-| method | <code>string</code> &#124; <code>[normalizer](#normalizer)</code> | The method to normalize a value or a space delimited list of normalizer names to execute. |
+| method | <code>string</code> &#124; <code>normalizer</code> | The method to normalize a value or a space delimited list of normalizer names to execute. |
 
 **Example**  
 ```js
 $.validator.unobtrusive.normalize.addNormalizer('remove-amps',function(value){return (value || '').replace('&','');});
+$.validator.unobtrusive.normalize.addNormalizer('remove-amps','first next last');
 ```
-<a name="normalizer"></a>
+<a name="module_jquery-validation-unobtrusive-normalize..normalizer"></a>
 
-## normalizer ⇒ <code>string</code>
+### jquery-validation-unobtrusive-normalize~normalizer ⇒ <code>string</code>
 Callback used to normalize a value before validation.
 
-**Kind**: global typedef  
+**Kind**: inner typedef of <code>[jquery-validation-unobtrusive-normalize](#module_jquery-validation-unobtrusive-normalize)</code>  
 **Returns**: <code>string</code> - Normalized value.  
 
 | Param | Type | Description |

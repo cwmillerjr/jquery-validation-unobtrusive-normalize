@@ -2,6 +2,7 @@
 * Unobtrusive normalization support library for jQuery Validate and jQuery Unobtrusive Validation
 * @copyright cwmillerjr
 * @version v0.1.0
+* @module jquery-validation-unobtrusive-normalize
 */
 
 (function (factory) {
@@ -21,9 +22,10 @@
          * @returns {string} Normalized value.
          */
 
-        /** @class Unobtrusive normalization add-on for jQuery Validation Unobtrusive
+        /**
+         * Unobtrusive normalization add-on for jQuery Validation Unobtrusive
          * @classdesc This dictionary catalogs the normalizer functions available to be used via the data-val-normalizer="name" attributes.
-         * @module jquery-validation-unobtrusive-normalize
+         * @constructor
          */
         function normalizerDictionary () {
 
@@ -35,6 +37,7 @@
              * Adds a named normalizer function to the dictionary.
              * @example
              * $.validator.unobtrusive.normalize.addNormalizer('remove-amps',function(value){return (value || '').replace('&','');});
+             * $.validator.unobtrusive.normalize.addNormalizer('remove-amps','first next last');
              * @param {string} name - The name of the normalizer.
              * @param {(string|normalizer)} method - The method to normalize a value or a space delimited list of normalizer names to execute.
              */
@@ -44,7 +47,7 @@
             }
         }
 
-        $jQuno.normalizers = new normalizerDictionary();
+        $jQuno.normalizers = new normalizerDictionary ();
 
         /**
          * Inner normalization helper.
