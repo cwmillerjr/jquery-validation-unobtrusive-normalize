@@ -82,25 +82,22 @@
     });
     
     $jQuno.normalizers.addNormalizer("remove-periods", function (val) {
-        var result = val;
-        if (val) {
-            result = val.replace(/./g, '');
+        if (value) {
+            return value.replace(/\./g, '');
         }
-        return result;
+        return value;
     });
-    $jQuno.normalizers.addNormalizer("remove-commas", function (val) {
-        var result = val;
-        if (val) {
-            result = val.replace(/,/g, '');
+    $jQuno.normalizers.addNormalizer("remove-commas", function (value) {
+        if (value) {
+            return value.replace(/,/g, '');
         }
-        return result;
+        return value;
     });
-    $jQuno.normalizers.addNormalizer("number-only", function (val) {
-        var result = val;
-        if (val) {
-            result = val.replace(/[^0-9\.]/g);
+    $jQuno.normalizers.addNormalizer("number-only", function (value) {
+        if (value) {
+            return value.replace(/[^0-9\.]/g);
         }
-        return result;
+        return value;
     });
     $jQuno.normalizers.addNormalizer("remove-currency", function (value) {
         if (value) {
