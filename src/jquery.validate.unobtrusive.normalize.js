@@ -63,7 +63,7 @@
             });
         } else {
             //a rule in the dictionary can be a list of space delimited rules as well.
-            normalizerFn = $jQuno.normalizers[normalizer];
+            var normalizerFn = $jQuno.normalizers[normalizer];
             if (typeof normalizerFn === 'string') {
                 value = normalize.call(this, value, normalizerFn);
             }
@@ -81,7 +81,7 @@
         }
     });
     
-    $jQuno.normalizers.addNormalizer("remove-periods", function (val) {
+    $jQuno.normalizers.addNormalizer("remove-periods", function (value) {
         if (value) {
             return value.replace(/\./g, '');
         }
